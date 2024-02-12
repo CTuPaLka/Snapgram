@@ -12,17 +12,20 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { useToast } from '@/components/ui/use-toast'
+import { useUserContext } from '@/context/AuthContext'
 import {
 	useCreateUserAccount,
 	useSignInAccount,
 } from '@/lib/react-query/queriesAndMutation'
 import { SignupValidation } from '@/lib/validation'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { z } from 'zod'
 
 const SignupForm = () => {
 	const { toast } = useToast()
+	const { checkAuthUser, isLoading: isUserLoading } = useUserContext()
+	const navigate = useNavigate()
 
 	const { isLoading: isCreatingUser, mutateAsync: createUserAccount } =
 		useCreateUserAccount()
@@ -53,6 +56,18 @@ const SignupForm = () => {
 			password: values.password,
 		})
 		if (!session) {
+			return toast({
+				title: 'Sign up failed. Please try again.',
+			})
+		}
+
+		const isLoggedIn = await checkAuthUser()
+
+		if (!isLoggedIn) {
+			form.reset()
+
+			navigate('/')
+		} else {
 			return toast({
 				title: 'Sign up failed. Please try again.',
 			})
