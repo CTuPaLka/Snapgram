@@ -47,11 +47,8 @@ const SigninForm = () => {
 
 		const isLoggedIn = await checkAuthUser()
 
-		console.log(isLoggedIn)
-
 		if (isLoggedIn) {
 			form.reset()
-			console.log('NAVIGATING')
 			navigate('/')
 		} else {
 			toast({
