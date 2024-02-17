@@ -1,5 +1,14 @@
 const Home = () => {
-	return <div>Home</div>
-}
+  return (
+    <div className="flex flex-1">
+      <div className="home-container">
+        <div className="home-posts">
+          <h2 className="h3-bold md:h2-bold text-left w-full">Home feed</h2>
+			 {isPostLoading && !posts ? }
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Home
+export default Home;
