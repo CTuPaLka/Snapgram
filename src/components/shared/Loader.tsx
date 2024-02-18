@@ -2,7 +2,7 @@ type Props = {}
 
 const Loader = (props: Props) => {
 	return (
-		<div className='felx-center w-full'>
+		<div className='flex-center w-full'>
 			<img
 				src='/public/assets/icons/loader.svg'
 				alt='loader'
