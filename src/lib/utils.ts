@@ -6,8 +6,8 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatTimeAgo(dateString: string): string {
-	const date = new Date(dateString)
-	const now = new Date()
+	const date: Date = new Date(dateString)
+	const now: Date = new Date()
 
 	const seconds = Math.floor((now - date) / 1000)
 	const minutes = Math.floor(seconds / 60)
@@ -21,7 +21,7 @@ export function formatTimeAgo(dateString: string): string {
 	} else if (minutes > 0) {
 		return `${minutes} minute${minutes > 1 ? 's' : ''} ago`
 	} else {
-		return `${seconds} second${seconds !== 1 ? 's' : ''} ago`
+		return 'just now'
 	}
 }
 
