@@ -14,7 +14,6 @@ const PostDetails = () => {
 
 	const { data: post, isPending } = useGetPostById(id || '')
 
-	закончить 5-36 -54
 	const handleDeletePost = () => {
 		deletePost({ postId: id, imageId: post?.imageId })
 		navigate(-1)
@@ -80,7 +79,7 @@ const PostDetails = () => {
 										user.id !== post?.creator.$id && 'hidden'
 									}`}
 									variant='ghost'
-									onClick={handleDelete}
+									onClick={handleDeletePost}
 								>
 									<img
 										src='/assets/icons/delete.svg'
