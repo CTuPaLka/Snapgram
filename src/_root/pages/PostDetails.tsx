@@ -1,4 +1,3 @@
-import { deletePost } from '@/lib/appwrite/api'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import Loader from '../../components/shared/Loader'
 import PostStats from '../../components/shared/PostStats'
@@ -15,8 +14,8 @@ const PostDetails = () => {
 	const { data: post, isPending } = useGetPostById(id || '')
 
 	const handleDeletePost = () => {
-		deletePost({ postId: id, imageId: post?.imageId })
-		navigate(-1)
+		// deletePost({ postId: id, imageId: post?.imageId })
+		// navigate(-1)
 	}
 
 	return (
